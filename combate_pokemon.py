@@ -3,6 +3,8 @@ pokemon_elegido = input("¿Contra qué Pokemon quieres combatir? (Squirtle / Cha
 while pokemon_elegido != "SQUIRTLE" and pokemon_elegido != "CHARMANDER" and pokemon_elegido != "BULBASAUR":
     pokemon_elegido = input("¿Contra qué Pokemon quieres combatir? (Squirtle / Charmander / Bulbasaur): ").upper()
 
+import time
+
 vida_pikachu = 100
 chance_chispazo = 9
 chance_voltio = 8
@@ -49,6 +51,8 @@ while vida_pikachu > 0 and vida_enemigo > 0:
     while not (ataque_elegido == "CHISPAZO" or ataque_elegido == "BOLA VOLTIO"):
         ataque_elegido = input("¿Qué ataque vamos a usar? (Chispazo / Bola voltio)").upper()
 
+    time.sleep(1)
+
     import random
     chance_ataque = random.randint(1, 10)
     if ataque_elegido == "CHISPAZO":
@@ -64,10 +68,14 @@ while vida_pikachu > 0 and vida_enemigo > 0:
         else:
             print("¡Tu ataque ha fallado! ")
 
+    time.sleep(1)
+
     if vida_enemigo > 0:
         print("La vida del {} enemigo ahora es de {}".format(nombre_pokemon, vida_enemigo))
     else:
         print("Has derrotado al {} enemigo".format(nombre_pokemon))
+
+    time.sleep(1)
 
     if vida_enemigo > 0:
         if ataque_elegido == "BOLA VOLTIO" and chance_ataque <= chance_voltio:
@@ -84,16 +92,38 @@ while vida_pikachu > 0 and vida_enemigo > 0:
                     nombre_ataque = nombre_ataque_2
                 chance_ataque_enemigo = random.randint(1, 10)
                 if chance_ataque_enemigo <= chance_enemigo:
-                    print("El {} enemigo usa {} y te hace {} de daño".format(nombre_pokemon, nombre_ataque, ataque_enemigo))
+                    print("El {} enemigo usa {} y te hace {} de daño".format(nombre_pokemon, nombre_ataque,
+                                                                             ataque_enemigo))
                     vida_pikachu -= ataque_enemigo
                 else:
                     print("¡El ataque enemigo ha fallado!")
+        else:
+            numero_ataque = random.randint(1, 10)
+            if numero_ataque > 5:
+                ataque_enemigo = ataque_1
+                nombre_ataque = nombre_ataque_1
+            else:
+                ataque_enemigo = ataque_2
+                nombre_ataque = nombre_ataque_2
+            chance_ataque_enemigo = random.randint(1, 10)
+            if chance_ataque_enemigo <= chance_enemigo:
+                print("El {} enemigo usa {} y te hace {} de daño".format(nombre_pokemon, nombre_ataque, ataque_enemigo))
+                vida_pikachu -= ataque_enemigo
+            else:
+                print("¡El ataque enemigo ha fallado!")
+
+    time.sleep(1)
+
     print("La vida de Pikachu es de {}".format(vida_pikachu))
+
+time.sleep(1)
 
 if vida_enemigo <= 0:
     print("¡Has ganado!")
 
 if vida_pikachu <= 0:
     print("¡Has perdido!")
+
+time.sleep(1)
 
 print("El combate ha terminado")
