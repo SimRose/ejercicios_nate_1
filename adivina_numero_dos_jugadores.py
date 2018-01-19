@@ -1,9 +1,14 @@
 print("Bienvenido al juego")
 
-numero_ganador = int(input("Elija un numero para adivinar del 1 al 10 "))
+numero_ganador = 0
+intentos_restantes = ""
+
 while numero_ganador < 1 or numero_ganador > 10:
     numero_ganador = int(input("Elija un numero para adivinar del 1 al 10 "))
-intentos_restantes = int(input("Cuantos intentos quiere otorgar? "))
+
+while not intentos_restantes.isdigit():
+    intentos_restantes = input("Cuantos intentos quiere otorgar? ")
+
 
 numero_del_usuario = int(input("Adivina un numero del 1 al 10, tienes {} intentos:  ".format(intentos_restantes)))
 

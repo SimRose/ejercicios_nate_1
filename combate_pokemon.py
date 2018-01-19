@@ -1,6 +1,7 @@
 
-pokemon_elegido = input("¿Contra qué Pokemon quieres combatir? (Squirtle / Charmander / Bulbasaur): ").upper()
-while pokemon_elegido != "SQUIRTLE" and pokemon_elegido != "CHARMANDER" and pokemon_elegido != "BULBASAUR":
+pokemon_elegido = ""
+
+while not (pokemon_elegido == "SQUIRTLE" or pokemon_elegido == "CHARMANDER" or pokemon_elegido == "BULBASAUR"):
     pokemon_elegido = input("¿Contra qué Pokemon quieres combatir? (Squirtle / Charmander / Bulbasaur): ").upper()
 
 import time
